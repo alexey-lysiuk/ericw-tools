@@ -65,7 +65,7 @@ jobs:
       with:
         name: ericw-tools-${{ github.sha }}-Linux
         path: |
-#          build-linux/ericw-tools-*.zip
+          # build-linux/ericw-tools-*.zip
           .
 
     - name: Upload macOS artifact
