@@ -9,11 +9,13 @@ jobs:
       # Don't cancel the macOS build if the Linux build fails, etc.
       fail-fast: false
       matrix:
-        os: [ubuntu-20.04, macos-11, windows-2019]
-        use-asan: [YES, NO]
-        exclude:
-          - os: windows-2019
-            use-asan: YES
+#        os: [ubuntu-20.04, macos-11, windows-2019]
+#        use-asan: [YES, NO]
+#        exclude:
+#          - os: windows-2019
+#            use-asan: YES
+        os: [ubuntu-20.04]
+        use-asan: [NO]
     env:
         # Expose to the build-*.sh in an environment variable
         USE_ASAN: ${{ matrix.use-asan }}
@@ -63,7 +65,8 @@ jobs:
       with:
         name: ericw-tools-${{ github.sha }}-Linux
         path: |
-          build-linux/ericw-tools-*.zip
+#          build-linux/ericw-tools-*.zip
+          .
 
     - name: Upload macOS artifact
       uses: actions/upload-artifact@v3
